@@ -4,7 +4,7 @@ const filterDropDown = document.getElementById('filter');
 const filterRegion = filterDropDown.querySelectorAll('li');
 const search = document.getElementById('search');
 const modal = document.getElementById('modal');
-const closeButton = document.getElementById('close');
+const backBtn = document.getElementById('back');
 
 getCountries();
 
@@ -24,16 +24,16 @@ function displayCountries(countries) {
 
 		countryEl.innerHTML = `
             <div class="img-wrapper">
-                <img src="${country.flag}" alt="Germany" />
+                <img src="${country.flag}" alt="${country.name}" />
             </div>
             <div class="card-body">
                 <h3 class="country-name">${country.name}</h3>
                 <p>
-                    <small>Population:</small>
+                    <small>Population: </small>
                     ${country.population}
                 </p>
                 <p class="country-region">
-                    <small>Region:</small>
+                    <small>Region: </small>
                     ${country.region}
                 </p>
                 <p>
@@ -53,23 +53,42 @@ function displayCountries(countries) {
 }
 
 function showCountryDetails(country) {
-	const modalBody = modal.querySelector('.modal-body');
+	const wrapperBody = modal.querySelector('.wrapper-body');
 	const modalImg = modal.querySelector('img');
 
 	modalImg.src = country.flag;
 
-	modalBody.innerHTML = `
-        <h2>${country.name}</h2>
-        <p><strong>Native Name:</strong>${country.nativeName}</p>
-        <p><strong>Population:</strong>${country.population}</p>
-        <p><strong>Region:</strong>${country.region}</p>
-        <p><strong>Sub Region:</strong>${country.subregion}</p>
-        <p><strong>Capital:</strong>${country.capital}</p>
-        <p><strong>Top Level Domain:</strong>${country.topLevelDomain[0]}</p>
-        <p><strong>Currencies:</strong>${country.currencies.map(currency => currency.code)}</p>
-        <p><strong>Languages:</strong>${country.languages.map(language => language.name)}</p>
+	wrapperBody.innerHTML = `
+		<div>
+			<h2>${country.name}</h2>
+			<p><span>Native Name: </span>${country.nativeName}</p>
+			<p><span>Population: </span>${country.population}</p>
+			<p><span>Region: </span>${country.region}</p>
+			<p><span>Sub Region: </span>${country.subregion}</p>
+			<p><span>Capital: </span>${country.capital}</p>
+		</div>
+
+		<div>		
+			<p><span>Top Level Domain: </span>${country.topLevelDomain[0]}</p>
+			<p><span>Currencies: </span>${country.currencies.map(currency => currency.code)}</p>
+			<p><span>Languages: </span>${country.languages.map(language => language.name)}</p>
+		</div>
+
+		<div class="borders">
+			<span>Border Countries: </span><span class="border">${country.borders.map(border => border)}</span>
+		</div>
+
     `;
 }
+
+// "borders": [
+// 	"IRN",
+// 	"PAK",
+// 	"TKM",
+// 	"UZB",
+// 	"TJK",
+// 	"CHN"
+// 	],
 
 // toggle theme - dark & light
 toggleButton.addEventListener('click', () => {
@@ -82,7 +101,7 @@ filterDropDown.addEventListener('click', () => {
 });
 
 // close the modal
-closeButton.addEventListener('click', () => {
+backBtn.addEventListener('click', () => {
 	modal.style.display = 'none';
 });
 
