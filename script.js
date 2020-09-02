@@ -15,6 +15,10 @@ async function getCountries() {
 	displayCountries(countries);
 }
 
+function truncateString(str, num) {
+	return str.length > num ? str.slice(0, num) + "..." : str;
+}
+
 function displayCountries(countries) {
 	allCountries.innerHTML = '';
 
@@ -27,7 +31,7 @@ function displayCountries(countries) {
                 <img src="${country.flag}" alt="${country.name}" />
             </div>
             <div class="card-body">
-                <h3 class="country-name">${country.name}</h3>
+                <h3 class="country-name">${truncateString(country.name, 18)}</h3>
                 <p>
                     <small>Population: </small>
                     ${country.population}
@@ -38,7 +42,7 @@ function displayCountries(countries) {
                 </p>
                 <p>
                     <small>Capital:</small>
-                    ${country.capital}
+                    ${truncateString((country.capital),15)}
                 </p>
             </div>
         `;
@@ -52,6 +56,8 @@ function displayCountries(countries) {
 	});
 }
 
+
+
 function showCountryDetails(country) {
 	const wrapperBody = modal.querySelector('.wrapper-body');
 	const modalImg = modal.querySelector('img');
@@ -60,7 +66,7 @@ function showCountryDetails(country) {
 
 	wrapperBody.innerHTML = `
 		<div>
-			<h2>${country.name}</h2>
+			<h2>${truncateString(country.name, 20)}</h2>
 			<p><span>Native Name: </span>${country.nativeName}</p>
 			<p><span>Population: </span>${country.population}</p>
 			<p><span>Region: </span>${country.region}</p>
