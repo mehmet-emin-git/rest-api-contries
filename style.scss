@@ -266,18 +266,9 @@ body.dark .btn-toggle .far {
 
 		.image {
 			max-width: 45%;
-			min-height: 25rem;
+			min-height: auto;
 			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-			position: relative;
-
-			& img {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				object-fit: cover;
-	
-			}
+			object-fit: cover;
 		}
 
 		&-body {
@@ -307,6 +298,10 @@ body.dark .btn-toggle .far {
 				position: absolute;
 				left: 0;
 				bottom: -3rem;
+
+				left: 12px;
+				bottom: -1rem;
+
 
 				.border{
 					display: inline-flex;
@@ -355,28 +350,31 @@ body.dark .btn-toggle .far {
 
 		.wrapper {
 			flex-direction: column;
-
 			justify-content: space-between;
-		flex-wrap: wrap;
-		margin-top: 6rem;
-		width: 100%;
+			flex-wrap: wrap;
+			margin-top: 13rem;
+			width: 100%;
+			padding-bottom: 2rem;
 
 		.image {
 			max-width: 100%;
 		}
 
 		&-body {
+			flex-direction: column;
 			width: 100%;
 			left: 0rem;
+			align-items: flex-start;
 
 			& div:first-child{
 				margin-right: 0rem;
 			}
-		}
 
-			&-body{
-				flex-direction: column;
+			.borders{
+				left: 12px;
+				bottom: -1rem;
 			}
+		}
 		}
 	}
 }
