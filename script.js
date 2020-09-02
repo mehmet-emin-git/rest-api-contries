@@ -73,11 +73,6 @@ function showCountryDetails(country) {
 			<p><span>Currencies: </span>${country.currencies.map(currency => currency.code)}</p>
 			<p><span>Languages: </span>${country.languages.map(language => language.name)}</p>
 		</div>
-
-		<div class="borders">
-			<span>Border Countries: </span><span class="border">${country.borders.map(border => border)}</span>
-		</div>
-
     `;
 }
 

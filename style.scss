@@ -290,27 +290,6 @@ body.dark .btn-toggle .far {
 				font-size: 1.1rem;
 				font-weight: 600;
 			}
-
-			.borders{
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				position: absolute;
-				left: 0;
-				bottom: -3rem;
-
-				left: 12px;
-				bottom: -1rem;
-
-
-				.border{
-					display: inline-flex;
-					background: var(--background);
-					padding: 1rem 1.3rem;
-					margin-left: 1rem;
-					font-weight: normal;
-				}
-			}
 		}
 
 	}	
@@ -370,10 +349,6 @@ body.dark .btn-toggle .far {
 				margin-right: 0rem;
 			}
 
-			.borders{
-				left: 12px;
-				bottom: -1rem;
-			}
 		}
 		}
 	}
